@@ -20,12 +20,7 @@ dependency "core" {
   config_path = "../core"
 }
 
-dependency "shared" {
-    config_path = "../shared"
-}
-
 inputs = {
   core_rg_name     = dependency.core.outputs.core_rg_name
   core_rg_location = dependency.core.outputs.core_rg_location
-  shared_kv_id     = dependency.shared.outputs.kv_id
 }

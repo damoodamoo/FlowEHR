@@ -12,20 +12,22 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-include "root" {
-  path = find_in_parent_folders()
+variable "naming_prefix" {
+  type = string
 }
 
-dependency "core" {
-  config_path = "../core"
+variable "truncated_naming_prefix" {
+  type = string
 }
 
-dependency "shared" {
-    config_path = "../shared"
+variable "tags" {
+  type = map(any)
 }
 
-inputs = {
-  core_rg_name     = dependency.core.outputs.core_rg_name
-  core_rg_location = dependency.core.outputs.core_rg_location
-  shared_kv_id     = dependency.shared.outputs.kv_id
+variable "core_rg_name" {
+  type = string
+}
+
+variable "core_rg_location" {
+  type = string
 }

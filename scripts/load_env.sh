@@ -68,3 +68,11 @@ export TRUNCATED_NAMING_PREFIX
 export MGMT_RG="${NAMING_PREFIX}-rg-mgmt"
 export MGMT_STORAGE="${TRUNCATED_NAMING_PREFIX}strm"
 export STATE_CONTAINER="tfstate"
+
+if az acr list | grep -q "$DEVCONTAINER_ACR_NAME"; then
+    DEVCONTAINER_ACR_RG=$(az acr list -o table | grep "$DEVCONTAINER_ACR_NAME" | awk '{print $2;}')
+else
+   DEVCONTAINER_ACR_RG="$MGMT_RG"
+fi
+export DEVCONTAINER_ACR_RG TF_VAR_devcontainer_acr_name="$DEVCONTAINER_ACR_NAME"
+export TF_VAR_devcontainer_acr_rg="$DEVCONTAINER_ACR_RG"

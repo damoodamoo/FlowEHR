@@ -29,6 +29,11 @@
             "description": "Azure container registry name. If this does not exist then make bootstrap will create it",
             "type": "string",
             "pattern": "[0-9a-z]{5,50}"
+        },
+        "devcontainer_acr_tag": {
+            "description": "Image tag on the devcontainer to use for the build agent. Present at $devcontainer_acr_name.azurecr.io/flowehr/devcontainer:$devcontainer_acr_tag",
+            "type": "string",
+            "pattern": "[a-zA-Z][a-zA-Z-.0-9]+"
         }
     }
 }

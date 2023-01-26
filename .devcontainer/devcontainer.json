@@ -18,7 +18,8 @@
 				"hashicorp.hcl",
 				"ms-vscode.azurecli",
 				"ms-azuretools.vscode-docker",
-				"timonwong.shellcheck"
+				"timonwong.shellcheck",
+				"ms-vscode-remote.remote-ssh"
 			]
 		}
 	},
