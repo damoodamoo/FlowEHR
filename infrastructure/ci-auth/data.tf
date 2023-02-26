@@ -12,17 +12,9 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
-data "azurerm_virtual_network" "core" {
-  name                = var.core_vnet_name
-  resource_group_name = var.core_rg_name
-}
-
-data "azurerm_private_dns_zone" "blobcore" {
-  name                = "privatelink.blob.core.windows.net"
-  resource_group_name = var.core_rg_name
-}
-
 data "azurerm_client_config" "current" {}
+
+data "azurerm_subscription" "primary" {}
 
 # get the MSGraph app
 data "azuread_application_published_app_ids" "well_known" {}
